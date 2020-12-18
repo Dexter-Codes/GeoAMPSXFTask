@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GeoAMPSXFTask.View.SignUpView"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Text="GEOAMPS  SIGNUP" FontSize="40" HorizontalOptions="Center" VerticalOptions="Center" TextColor="GreenYellow"/>
+
+                <Frame
+                    Grid.Row="1"
+                    Padding="20"
+                    BackgroundColor="Transparent">
+                    <Frame.Margin>
+                        <OnPlatform
+                            x:TypeArguments="Thickness"
+                            Android="25,30,25,10"
+                            iOS="25" />
+                    </Frame.Margin>
+                    <StackLayout>
+
+                        <Entry Placeholder="Username"
+                           Text="{Binding Username}"
+                               TextColor="Red"
+                           BackgroundColor="Transparent"/>
+                    <Entry Placeholder="Password"
+                           Text="{Binding Password}"
+                           TextColor="Red"
+                           BackgroundColor="Transparent"
+                           IsPassword="True"/>
+                    <Entry Placeholder="Confirm Password"
+                           Text="{Binding CnfPassword}"
+                           TextColor="Red"
+                           BackgroundColor="Transparent"
+                           IsPassword="True"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="DOB : " Margin="0,7,0,0" FontSize="Large"/>
+                            <DatePicker Margin="15,0,0,0"
+                                MinimumDate="12/01/1992"
+                           MaximumDate="12/31/2000"
+                              TextColor="Red"
+                             Date="{Binding DOB,Mode=TwoWay}"    
+                           />
+                        </StackLayout>
+                        <Entry Placeholder="Address"
+                                 BackgroundColor="Transparent"
+                                Text="{Binding Address}"
+                                MaxLength="200"/>
+                        <Button Text="SIGNUP" BackgroundColor="Blue" Margin="0,20,0,0" Command="{Binding SignUpCommand}"/>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
